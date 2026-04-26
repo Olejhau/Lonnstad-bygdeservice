@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lønnstad Bygdeservice</title>
+    <meta
+      name="description"
+      content="Lønnstad Bygdeservice tilbyr praktisk hjelp i bygda: vedlikehold, brøyting, transport, hagearbeid og små oppdrag for privat- og bedriftskunder."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="container nav-wrap">
+        <a class="logo" href="#top">Lønnstad Bygdeservice</a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">
+          Meny
+        </button>
+        <nav id="main-nav" class="main-nav" aria-label="Hovedmeny">
+          <a href="#tjenester">Tjenester</a>
+          <a href="#om-oss">Om oss</a>
+          <a href="#prosjekter">Prosjekter</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-content">
+          <p class="eyebrow">Trygg lokal leverandør</p>
+          <h1>Allsidig bygdeservice på Lønnstad</h1>
+          <p>
+            Vi hjelper deg med små og store oppdrag gjennom hele året – raskt, ryddig
+            og med god lokal kjennskap.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#kontakt">Be om tilbud</a>
+            <a class="btn btn-secondary" href="tel:+4799999999">Ring 99 99 99 99</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="tjenester">
+        <div class="container">
+          <h2>Våre tjenester</h2>
+          <div class="card-grid">
+            <article class="card">
+              <h3>Vedlikehold</h3>
+              <p>
+                Enkle reparasjoner, maling, rydding og praktiske oppgaver på hus,
+                garasje og eiendom.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Brøyting og strøing</h3>
+              <p>
+                Vintervedlikehold av gårdsplasser, private veier og næringsområder med
+                fokus på sikkerhet.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Hage og uteområde</h3>
+              <p>
+                Gressklipp, hekkeklipp, beskjæring og sesongarbeid som holder
+                uteområdene i god stand.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Transport og bortkjøring</h3>
+              <p>
+                Henting, levering og bortkjøring av avfall, hageavfall og materialer i
+                nærområdet.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="om-oss">
+        <div class="container about-layout">
+          <div>
+            <h2>Om Lønnstad Bygdeservice</h2>
+            <p>
+              Lønnstad Bygdeservice er bygget på samme idé som klassiske
+              bygdeservice-bedrifter: tilgjengelig hjelp, lokal forankring og arbeid
+              utført skikkelig. Vi tar oppdrag for både privatpersoner, borettslag,
+              gårdsbruk og lokale bedrifter.
+            </p>
+            <p>
+              Vårt mål er å være et enkelt kontaktpunkt når du trenger ekstra hender –
+              enten det gjelder en fast avtale eller et enkelt oppdrag.
+            </p>
+          </div>
+          <ul class="facts">
+            <li><strong>Område:</strong> Lønnstad og omegn</li>
+            <li><strong>Åpningstid:</strong> Man–fre 07:00–17:00</li>
+            <li><strong>Akutt hjelp:</strong> Etter avtale</li>
+            <li><strong>Kunder:</strong> Privat og næring</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="prosjekter">
+        <div class="container">
+          <h2>Eksempler på oppdrag</h2>
+          <div class="project-grid">
+            <article>
+              <h3>Vårklargjøring av gårdstun</h3>
+              <p>Rydding, bortkjøring av avfall og oppfriskning av utearealer.</p>
+            </article>
+            <article>
+              <h3>Sesongavtale for brøyting</h3>
+              <p>Fast vinterberedskap for private huseiere og mindre næringsbygg.</p>
+            </article>
+            <article>
+              <h3>Smårehabilitering</h3>
+              <p>Utskifting av kledning, maling og utbedringer på eldre bygg.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-cta" id="kontakt">
+        <div class="container cta-layout">
+          <div>
+            <h2>Kontakt oss</h2>
+            <p>
+              Fortell kort hva du trenger hjelp til, så tar vi kontakt med forslag til
+              løsning og pris.
+            </p>
+          </div>
+          <form class="contact-form" action="#" method="post">
+            <label>
+              Navn
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              Telefon
+              <input type="tel" name="phone" required />
+            </label>
+            <label>
+              Beskrivelse av oppdrag
+              <textarea name="message" rows="4" required></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary">Send forespørsel</button>
+            <p class="form-note">Dette er en demo-side. Koble til e-post eller skjema-tjeneste for produksjon.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <p>© <span id="year"></span> Lønnstad Bygdeservice</p>
+        <a href="mailto:post@lonnstad-bygdeservice.no">post@lonnstad-bygdeservice.no</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
