@@ -1,72 +1,127 @@
-# Lønnstad Bygdeservice – nettside
+# Lønnstad Bygdeservice
 
-Dette er en statisk nettside for Lønnstad Bygdeservice.
+Dette er nettsiden for Lønnstad Bygdeservice.
 
-## Filer
+## Innhold
 
-- `index.html` – forsiden
-- `styles.css` – farger, layout og mobiltilpasning
-- `script.js` – bildekarusell, mobilmeny og EmailJS-skjema
-- `personvern.html` – enkel personvernerklæring
-- `assets/lonnstad.svg` – logo
-- `assets/hero/` – forsidebilder
-- `assets/gallery/` – bilder av utført arbeid
+- Forside med hero-bilder fra GitHub
+- Mine tjenester
+- Bildekarusell med de nyeste bildene fra GitHub
+- Kontaktskjema med EmailJS
+- Presentasjon av Jostein Haugen
+- Kart
 
-## Bilder
+## Filstruktur
 
-Siden er klar for ekte bilder av utført arbeid.
+```txt
+lonnstad-bygdeservice/
+├── index.html
+├── package.json
+├── README.md
+├── bilder/
+│   ├── README.md
+│   ├── hero/
+│   │   └── .gitkeep
+│   └── galleri/
+│       └── .gitkeep
+├── public/
+│   ├── logo.svg
+│   └── icons/
+│       ├── dumper-truck.svg
+│       ├── excavator.svg
+│       ├── tractor.svg
+│       ├── tree.svg
+│       ├── trucking-truck.svg
+│       ├── wheat.svg
+│       └── tools.svg
+└── src/
+    ├── App.jsx
+    ├── index.css
+    └── main.jsx
+```
 
-Legg forsidebilder her:
+## Slik legger du det opp på GitHub
 
-- `assets/hero/hero-1.jpg`
-- `assets/hero/hero-2.jpg`
-- `assets/hero/hero-3.jpg`
+1. Opprett et nytt repo som heter:
 
-Legg bilder til karusellen her:
+```txt
+lonnstad-bygdeservice
+```
 
-- `assets/gallery/arbeid-1.jpg`
-- `assets/gallery/arbeid-2.jpg`
-- `assets/gallery/arbeid-3.jpg`
-- `assets/gallery/arbeid-4.jpg`
-- `assets/gallery/arbeid-5.jpg`
-- `assets/gallery/arbeid-6.jpg`
-- `assets/gallery/arbeid-7.jpg`
+2. Last opp alle filene og mappene i denne pakken.
 
-Du kan også endre filnavnene i `script.js` hvis bildene heter noe annet.
+3. Pass på at repoet er public dersom bildehentingen fra GitHub skal fungere uten innlogging.
+
+4. Legg hero-bilder i:
+
+```txt
+bilder/hero
+```
+
+5. Legg galleri-/prosjektbilder i:
+
+```txt
+bilder/galleri
+```
+
+Nettsiden henter automatisk:
+
+- de 3 nyeste bildene fra `bilder/hero`
+- de 15 nyeste bildene fra `bilder/galleri`
+
+## Lokal kjøring
+
+Installer avhengigheter:
+
+```bash
+npm install
+```
+
+Start lokal forhåndsvisning:
+
+```bash
+npm run dev
+```
+
+Bygg siden:
+
+```bash
+npm run build
+```
+
+## GitHub Pages
+
+For Vite/React må GitHub Pages vanligvis settes opp med GitHub Actions, Netlify eller Vercel. En enkel løsning er å koble repoet til Netlify/Vercel og la de bygge med:
+
+```txt
+Build command: npm run build
+Publish directory: dist
+```
+
+## Viktige innstillinger i koden
+
+I `src/App.jsx` ligger disse verdiene:
+
+```js
+const GITHUB_OWNER = "olejhau";
+const GITHUB_REPO = "lonnstad-bygdeservice";
+const GITHUB_BRANCH = "main";
+```
+
+Hvis repoet får et annet navn eller ligger på en annen bruker, må disse endres.
 
 ## Kontaktskjema
 
-Skjemaet bruker EmailJS og sender til:
+Kontaktskjemaet bruker EmailJS med disse verdiene i `src/App.jsx`:
 
-`jotormh@online.no`
+```js
+publicKey: "rMLcYfRxvLAxe13ur"
+service: "service_r2q8u3s"
+template: "template_zo1skyk"
+```
 
-Oppsettet ligger i `script.js`:
+Mottaker er satt til:
 
-- Public key: `rMLcYfRxvLAxe13ur`
-- Service ID: `service_r2q8u3s`
-- Template ID: `template_zo1skyk`
-
-EmailJS-template bør ha disse feltene:
-
-- `to_email`
-- `name`
-- `email`
-- `phone`
-- `message`
-- `consent`
-
-## Kontaktinfo på siden
-
-- Firma: Lønnstad Bygdeservice
-- Eier/driver: Jostein Haugen
-- Telefon: 970 10 163
-- E-post: jotormh@online.no
-- Adresse: Søre Jørstad veg 54, 2625 Fåberg
-- Org.nr.: 934 594 770
-
-## Før publisering
-
-1. Legg inn ekte bilder i `assets/hero/` og `assets/gallery/`.
-2. Test EmailJS-skjemaet med en ekte innsending.
-3. Åpne siden på mobil og sjekk meny, bilder, skjema og kart.
-4. Last opp alle filer til webhotellet/repoet.
+```txt
+jotormh@online.no
+```
