@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lønnstad Bygdeservice</title>
+  <meta name="description" content="Service på bygda i Lillehammer og omegn. Transport, landbruk, anlegg, graving, veivedlikehold og reparasjoner." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
+    .nav-link { position: relative; padding: 10px 0; }
+    .nav-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: transparent; }
+    .nav-link:hover::after, .nav-link.active::after { background: #111; }
+    .field { width: 100%; border: 1px solid #d9d9d9; border-radius: 6px; background: #fff; padding: 14px 15px; color: #111; font-size: 15px; outline: none; }
+    .field:focus { border-color: #111; box-shadow: 0 0 0 3px rgba(0,0,0,.06); }
+    .carousel-arrow { position: absolute; top: 50%; z-index: 5; display: flex; height: 48px; width: 48px; transform: translateY(-50%); align-items: center; justify-content: center; border-radius: 999px; border: 1px solid #e5e5e5; background: rgba(255,255,255,.95); box-shadow: 0 8px 24px rgba(0,0,0,.12); font-size: 30px; line-height: 1; }
+  </style>
+</head>
+<body class="bg-white text-neutral-950">
+  <header class="sticky top-0 z-50 border-b border-neutral-200 bg-white">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+      <a href="#hjem" class="block w-[230px] max-w-[55vw]">
+        <img src="assets/lonnstad.svg" alt="Lønnstad Bygdeservice logo" class="h-auto w-full object-contain" />
+      </a>
+      <nav class="hidden items-center gap-10 text-sm font-semibold md:flex">
+        <a class="nav-link active" href="#hjem">Hjem</a>
+        <a class="nav-link" href="#tjenester">Tjenester</a>
+        <a class="nav-link" href="#bilder">Bilder</a>
+        <a class="nav-link" href="#om">Om oss</a>
+        <a class="nav-link" href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hjem" class="relative min-h-[520px] overflow-hidden bg-neutral-950 text-white">
+      <div id="heroFallback" class="absolute inset-0 opacity-50">
+        <svg viewBox="0 0 1400 520" preserveAspectRatio="xMidYMid slice" class="h-full w-full">
+          <defs><linearGradient id="sky" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#a9b8c8"/><stop offset="1" stop-color="#4a5a4d"/></linearGradient></defs>
+          <rect width="1400" height="520" fill="url(#sky)"/>
+          <path d="M0 265 C170 180 310 220 500 170 C690 120 770 240 980 170 C1140 120 1270 170 1400 105 L1400 520 L0 520 Z" fill="#1f2b22" opacity=".8"/>
+          <path d="M0 380 C150 350 330 365 520 340 C760 310 1010 340 1400 290 L1400 520 L0 520 Z" fill="#4a3a2b"/>
+        </svg>
+      </div>
+      <img id="heroImage" alt="Bilde fra arbeid" class="hidden absolute inset-0 h-full w-full object-cover opacity-55" />
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_75%_40%,rgba(255,255,255,0.18),transparent_32%),linear-gradient(90deg,rgba(0,0,0,0.88),rgba(0,0,0,0.55),rgba(0,0,0,0.28))]"></div>
+
+      <div class="relative mx-auto flex min-h-[520px] max-w-7xl items-center px-5 py-20 lg:px-8">
+        <div class="max-w-2xl">
+          <h1 class="text-5xl font-black uppercase leading-none tracking-tight md:text-7xl">Lønnstad<br />Bygdeservice</h1>
+          <p class="mt-6 max-w-xl text-xl leading-8 text-white/90">Service på bygda i Lillehammer og omegn</p>
+          <p id="heroSubtitle" class="mt-3 text-sm font-semibold uppercase tracking-[0.24em] text-white/70">Transport, landbruk og anlegg</p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#tjenester" class="rounded-md bg-white px-7 py-4 text-sm font-black text-neutral-950 shadow-lg transition hover:bg-neutral-100">MINE TJENESTER</a>
+            <a href="#kontakt" class="rounded-md border border-white/70 bg-black/20 px-7 py-4 text-sm font-black text-white backdrop-blur transition hover:bg-white hover:text-neutral-950">Kontakt oss</a>
+          </div>
+        </div>
+      </div>
+      <div id="heroDots" class="absolute bottom-5 left-1/2 flex -translate-x-1/2 gap-2"></div>
+    </section>
+
+    <section id="tjenester" class="mx-auto max-w-7xl px-5 py-16 lg:px-8">
+      <p class="text-sm font-black uppercase tracking-[0.18em]">MINE TJENESTER</p>
+      <h2 class="mt-4 text-3xl font-black md:text-4xl">Jeg hjelper deg med det meste</h2>
+      <div class="mt-10 grid gap-0 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8" id="services"></div>
+    </section>
+
+    <section id="bilder" class="bg-white px-5 py-12 lg:px-8">
+      <div class="mx-auto max-w-7xl text-center">
+        <p class="text-sm font-black uppercase tracking-[0.18em]">BILDER FRA MITT ARBEID</p>
+        <div class="relative mt-10">
+          <button type="button" id="prevGallery" class="carousel-arrow left-[-18px] md:left-[-34px]">‹</button>
+          <div id="galleryGrid" class="grid gap-4 md:grid-cols-5"></div>
+          <button type="button" id="nextGallery" class="carousel-arrow right-[-18px] md:right-[-34px]">›</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="px-5 py-10 lg:px-8">
+      <div class="mx-auto grid max-w-7xl overflow-hidden rounded-md border border-neutral-200 bg-white md:grid-cols-[0.9fr_1.6fr]">
+        <div class="border-b border-neutral-200 p-8 md:border-b-0 md:border-r">
+          <h2 class="text-2xl font-black">Kontaktinformasjon</h2>
+          <div class="mt-8 space-y-7 text-neutral-900">
+            <div class="flex gap-5"><div class="flex h-9 w-9 shrink-0 items-center justify-center text-2xl font-black">☎</div><div><a href="tel:97010163" class="hover:underline"><p class="font-semibold leading-tight">970 10 163</p><p class="mt-1 text-neutral-600">Jostein Haugen</p></a></div></div>
+            <div class="flex gap-5"><div class="flex h-9 w-9 shrink-0 items-center justify-center text-2xl font-black">●</div><div><p class="font-semibold leading-tight">Søre Jørstad veg 54</p><p class="mt-1 text-neutral-600">2625 Fåberg</p></div></div>
+            <div class="flex gap-5"><div class="flex h-9 w-9 shrink-0 items-center justify-center text-2xl font-black">✉</div><div><a href="mailto:jotormh@online.no" class="hover:underline"><p class="font-semibold leading-tight">jotormh@online.no</p></a></div></div>
+            <div class="flex gap-5"><div class="flex h-9 w-9 shrink-0 items-center justify-center text-2xl font-black">◷</div><div><p class="font-semibold leading-tight">Ta kontakt for avtale</p></div></div>
+          </div>
+        </div>
+
+        <div class="p-8">
+          <h2 class="text-2xl font-black">Send oss en melding</h2>
+          <form id="contactForm" class="mt-7">
+            <input type="hidden" name="to_email" value="jotormh@online.no" />
+            <div class="grid gap-4 md:grid-cols-3">
+              <input class="field" type="text" name="name" placeholder="Navn *" required />
+              <input class="field" type="email" name="email" placeholder="E-post *" required />
+              <input class="field" type="tel" name="phone" placeholder="Telefon *" required />
+            </div>
+            <div class="mt-4 grid gap-4 md:grid-cols-[0.65fr_1.35fr]">
+              <select class="field" name="subject" required id="subjectSelect"><option value="">Hva gjelder det?</option></select>
+              <textarea class="field min-h-[132px] resize-y" name="message" placeholder="Din melding *" required></textarea>
+            </div>
+            <label class="mt-5 flex items-start gap-3 text-sm text-neutral-500">
+              <input type="checkbox" name="consent" value="Ja" required class="mt-1" />
+              <span>Jeg samtykker til at opplysningene mine brukes for å svare på henvendelsen.</span>
+            </label>
+            <button type="submit" id="submitButton" class="mt-5 rounded-md bg-neutral-950 px-8 py-4 text-sm font-black text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:bg-neutral-400">Send melding</button>
+            <p id="formStatus" class="mt-4 text-sm font-bold"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="om" class="mx-auto max-w-7xl px-5 py-12 lg:px-8">
+      <div class="rounded-2xl bg-neutral-100 p-8 md:p-10">
+        <p class="text-sm font-black uppercase tracking-[0.18em]">Om oss</p>
+        <h2 class="mt-3 text-3xl font-black">Lokal hjelp med solid praktisk erfaring</h2>
+        <p class="mt-4 max-w-3xl text-lg leading-8 text-neutral-600">
+          Jostein Haugen er utdannet mekaniker og har over 40 års erfaring med tunge kjøretøy og maskiner. Han har jobbet som maskinfører og har solid kompetanse på alt fra lastebiler til tråkkemaskiner og gravemaskiner, med særlig god forståelse for hydraulikk.
+        </p>
+        <p class="mt-4 max-w-3xl text-lg leading-8 text-neutral-600">
+          Gjennom Lønnstad Bygdeservice tilbyr han pålitelig og allsidig hjelp innen blant annet veivedlikehold, brøyting, massetransport, leiekjøring, landbruksarbeid og reparasjon av anleggs- og landbruksutstyr. Han legger vekt på kvalitet, erfaring og praktiske løsninger tilpasset kundenes behov.
+        </p>
+      </div>
+    </section>
+
+    <section id="kart" class="bg-white px-5 py-12 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-sm font-black uppercase tracking-[0.18em]">Kart</p>
+        <h2 class="mt-3 text-3xl font-black">Her holder vi til</h2>
+        <p class="mt-3 text-neutral-600">Søre Jørstad veg 54, 2625 Fåberg</p>
+        <div class="mt-8 overflow-hidden rounded-xl border border-neutral-200 shadow-sm">
+          <iframe title="Kart til Søre Jørstad veg 54, 2625 Fåberg" src="https://www.google.com/maps?q=S%C3%B8re%20J%C3%B8rstad%20veg%2054%2C%202625%20F%C3%A5berg&output=embed" width="100%" height="420" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="block w-full"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-neutral-950 px-5 py-9 text-white lg:px-8">
+    <div class="mx-auto flex max-w-7xl flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+      <div class="w-[230px]"><img src="assets/lonnstad.svg" alt="Lønnstad Bygdeservice logo" class="h-auto w-full object-contain brightness-0 invert" /></div>
+      <p class="text-sm text-white/80">© <span id="year"></span> Lønnstad Bygdeservice. Alle rettigheter reservert.</p>
+      <p class="text-sm text-white/80">Nettside levert med stolthet.</p>
+    </div>
+  </footer>
+
+  <script>
+    const GITHUB_OWNER = "olejhau";
+    const GITHUB_REPO = "lonnstad-bygdeservice";
+    const GITHUB_BRANCH = "main";
+    const HERO_IMAGE_FOLDER = "bilder/hero";
+    const GALLERY_IMAGE_FOLDER = "bilder/galleri";
+
+    const heroTexts = ["Transport, landbruk og anlegg", "Veivedlikehold og graving", "Praktisk hjelp for private og næring"];
+    let heroImages = [];
+    let activeHero = 0;
+    let galleryImages = [];
+    let galleryIndex = 0;
+
+    const services = [
+      ["Transport", "assets/icons/trucking-truck-svgrepo-com.svg"],
+      ["Leiekjøring", "assets/icons/tractor-svgrepo-com.svg"],
+      ["Landbruk", "assets/icons/wheat-svgrepo-com.svg"],
+      ["Reparasjoner", "assets/icons/wrench-screwdriver-tool-options-svgrepo-com.svg"],
+      ["Veivedlikehold", "assets/icons/dumper-truck-svgrepo-com.svg"],
+      ["Anleggsarbeid", "assets/icons/dumper-truck-svgrepo-com.svg"],
+      ["Graving", "assets/icons/excavator-svgrepo-com.svg"],
+      ["Trefelling", "assets/icons/tree-svgrepo-com.svg"]
+    ];
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function renderServices() {
+      const servicesEl = document.getElementById("services");
+      const subjectSelect = document.getElementById("subjectSelect");
+
+      services.forEach(([title, icon]) => {
+        servicesEl.insertAdjacentHTML("beforeend", `
+          <article class="border-r border-neutral-200 px-5 py-6 text-center last:border-r-0">
+            <div class="mx-auto flex h-16 w-16 items-center justify-center">
+              <img src="${icon}" alt="" class="h-11 w-11 object-contain" />
+            </div>
+            <h3 class="mt-4 text-lg font-black">${title}</h3>
+          </article>
+        `);
+
+        const option = document.createElement("option");
+        option.value = title;
+        option.textContent = title;
+        subjectSelect.appendChild(option);
+      });
+    }
+
+    async function hentGithubBilder(folderPath) {
+      const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${folderPath}?ref=${GITHUB_BRANCH}`;
+
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error(`Kunne ikke hente bilder fra ${folderPath}`);
+
+        const files = await response.json();
+        if (!Array.isArray(files)) return [];
+
+        const imageFiles = files
+          .filter((file) => file.type === "file")
+          .filter((file) => /\.(jpg|jpeg|png|webp|gif|svg)$/i.test(file.name));
+
+        const filesWithDates = await Promise.all(
+          imageFiles.map(async (file) => ({
+            title: file.name.replace(/\.[^/.]+$/, ""),
+            preview: file.download_url,
+            updatedAt: await hentSisteCommitDato(file.path)
+          }))
+        );
+
+        return filesWithDates.sort((a, b) => b.updatedAt - a.updatedAt);
+      } catch (error) {
+        console.error(error);
+        return [];
+      }
+    }
+
+    async function hentSisteCommitDato(filePath) {
+      const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/commits?path=${encodeURIComponent(filePath)}&sha=${GITHUB_BRANCH}&per_page=1`;
+
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) return 0;
+
+        const commits = await response.json();
+        const date = commits?.[0]?.commit?.committer?.date || commits?.[0]?.commit?.author?.date;
+        return date ? new Date(date).getTime() : 0;
+      } catch (error) {
+        console.error(error);
+        return 0;
+      }
+    }
+
+    function renderHeroDots() {
+      const dots = document.getElementById("heroDots");
+      const count = heroImages.length || heroTexts.length;
+      dots.innerHTML = "";
+      for (let i = 0; i < count; i++) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = `h-3 w-3 rounded-full border border-white ${activeHero % count === i ? "bg-white" : "bg-white/20"}`;
+        button.setAttribute("aria-label", `Vis hero-bilde ${i + 1}`);
+        button.addEventListener("click", () => {
+          activeHero = i;
+          updateHero();
+        });
+        dots.appendChild(button);
+      }
+    }
+
+    function updateHero() {
+      const img = document.getElementById("heroImage");
+      const fallback = document.getElementById("heroFallback");
+      const subtitle = document.getElementById("heroSubtitle");
+
+      if (heroImages.length) {
+        const image = heroImages[activeHero % heroImages.length];
+        img.src = image.preview;
+        img.alt = image.title;
+        img.classList.remove("hidden");
+        fallback.classList.add("hidden");
+      } else {
+        img.classList.add("hidden");
+        fallback.classList.remove("hidden");
+      }
+
+      subtitle.textContent = heroTexts[activeHero % heroTexts.length];
+      renderHeroDots();
+    }
+
+    function getVisibleImages(items, start, count) {
+      if (!items.length) return [];
+      return Array.from({ length: Math.min(count, items.length) }, (_, i) => items[(start + i) % items.length]);
+    }
+
+    function renderGallery() {
+      const grid = document.getElementById("galleryGrid");
+      grid.innerHTML = "";
+
+      if (!galleryImages.length) {
+        for (let i = 0; i < 5; i++) {
+          grid.insertAdjacentHTML("beforeend", `<div class="h-48 rounded-xl border border-neutral-200 bg-gradient-to-br from-neutral-200 to-neutral-400 shadow-sm"></div>`);
+        }
+        return;
+      }
+
+      getVisibleImages(galleryImages, galleryIndex, 5).forEach((image) => {
+        grid.insertAdjacentHTML("beforeend", `
+          <div class="overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100 shadow-sm">
+            <img src="${image.preview}" alt="${image.title}" class="h-48 w-full object-cover" />
+          </div>
+        `);
+      });
+    }
+
+    async function initImages() {
+      const [hero, galleri] = await Promise.all([
+        hentGithubBilder(HERO_IMAGE_FOLDER),
+        hentGithubBilder(GALLERY_IMAGE_FOLDER)
+      ]);
+
+      heroImages = hero.slice(0, 3);
+      galleryImages = galleri.slice(0, 15);
+
+      updateHero();
+      renderGallery();
+    }
+
+    document.getElementById("prevGallery").addEventListener("click", () => {
+      if (!galleryImages.length) return;
+      galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+      renderGallery();
+    });
+
+    document.getElementById("nextGallery").addEventListener("click", () => {
+      if (!galleryImages.length) return;
+      galleryIndex = (galleryIndex + 1) % galleryImages.length;
+      renderGallery();
+    });
+
+    setInterval(() => {
+      const count = heroImages.length || heroTexts.length;
+      activeHero = (activeHero + 1) % count;
+      updateHero();
+    }, 4500);
+
+    emailjs.init({ publicKey: "rMLcYfRxvLAxe13ur" });
+
+    document.getElementById("contactForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const status = document.getElementById("formStatus");
+      const button = document.getElementById("submitButton");
+
+      status.textContent = "Sender...";
+      status.className = "mt-4 text-sm font-bold text-neutral-600";
+      button.disabled = true;
+      button.textContent = "Sender...";
+
+      try {
+        await emailjs.sendForm("service_r2q8u3s", "template_zo1skyk", form);
+        status.textContent = "Takk! Meldingen er sendt. Vi tar kontakt med deg så snart som mulig.";
+        status.className = "mt-4 text-sm font-bold text-green-700";
+        form.reset();
+      } catch (error) {
+        console.error("EmailJS-feil:", error);
+        status.textContent = "Beklager, noe gikk galt. Prøv igjen eller kontakt oss direkte på e-post.";
+        status.className = "mt-4 text-sm font-bold text-red-700";
+      } finally {
+        button.disabled = false;
+        button.textContent = "Send melding";
+      }
+    });
+
+    renderServices();
+    updateHero();
+    renderGallery();
+    initImages();
+  </script>
+</body>
+</html>
