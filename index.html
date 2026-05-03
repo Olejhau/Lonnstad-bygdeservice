@@ -35,46 +35,68 @@
   </header>
 
   <main>
-    <section id="hjem" class="relative min-h-[650px] overflow-hidden bg-neutral-950 text-white">
-      <div id="heroFallback" class="absolute inset-0 opacity-50">
-        <svg viewBox="0 0 1400 520" preserveAspectRatio="xMidYMid slice" class="h-full w-full">
-          <defs><linearGradient id="sky" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#a9b8c8"/><stop offset="1" stop-color="#4a5a4d"/></linearGradient></defs>
-          <rect width="1400" height="520" fill="url(#sky)"/>
-          <path d="M0 265 C170 180 310 220 500 170 C690 120 770 240 980 170 C1140 120 1270 170 1400 105 L1400 520 L0 520 Z" fill="#1f2b22" opacity=".8"/>
-          <path d="M0 310 C200 230 390 280 570 230 C750 180 920 280 1110 230 C1230 200 1320 210 1400 180 L1400 520 L0 520 Z" fill="#2e3b2f" opacity=".9"/>
-          <path d="M0 380 C150 350 330 365 520 340 C760 310 1010 340 1400 290 L1400 520 L0 520 Z" fill="#4a3a2b"/>
-        </svg>
+<section id="hjem" class="relative min-h-[650px] overflow-hidden bg-neutral-950 text-white">
+  <div id="heroFallback" class="absolute inset-0 opacity-50">
+    <svg viewBox="0 0 1400 520" preserveAspectRatio="xMidYMid slice" class="h-full w-full">
+      <defs>
+        <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#a9b8c8"/>
+          <stop offset="1" stop-color="#4a5a4d"/>
+        </linearGradient>
+      </defs>
+      <rect width="1400" height="520" fill="url(#sky)"/>
+      <path d="M0 265 C170 180 310 220 500 170 C690 120 770 240 980 170 C1140 120 1270 170 1400 105 L1400 520 L0 520 Z" fill="#1f2b22" opacity=".8"/>
+      <path d="M0 310 C200 230 390 280 570 230 C750 180 920 280 1110 230 C1230 200 1320 210 1400 180 L1400 520 L0 520 Z" fill="#2e3b2f" opacity=".9"/>
+      <path d="M0 380 C150 350 330 365 520 340 C760 310 1010 340 1400 290 L1400 520 L0 520 Z" fill="#4a3a2b"/>
+    </svg>
+  </div>
+
+  <div id="josteinImageWrap" class="absolute inset-y-0 left-0 w-1/2 opacity-80">
+    <img
+      src="./bilder/jostein.jpeg"
+      alt="Jostein Haugen"
+      class="h-full w-full object-cover object-center"
+    />
+  </div>
+
+  <div id="heroImageWrap" class="hidden absolute inset-y-0 right-0 w-1/2 opacity-80">
+    <img
+      id="heroImage"
+      alt="Bilde fra arbeid"
+      class="h-full w-full object-cover object-center"
+    />
+  </div>
+
+  <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.78)_0%,rgba(0,0,0,0.58)_42%,rgba(0,0,0,0.18)_62%,rgba(0,0,0,0.05)_100%)]"></div>
+
+  <div class="relative mx-auto flex min-h-[650px] max-w-7xl items-center justify-end px-5 py-20 lg:px-8">
+    <div class="relative z-10 max-w-2xl">
+      <h1 class="text-5xl font-black uppercase leading-none tracking-tight md:text-7xl">
+        Lønnstad<br />Bygdeservice
+      </h1>
+
+      <p class="mt-6 max-w-xl text-xl leading-8 text-white/90">
+        Service på bygda i Lillehammer og omegn
+      </p>
+
+      <p id="heroSubtitle" class="mt-3 text-sm font-semibold uppercase tracking-[0.24em] text-white/70">
+        Transport, landbruk og anlegg
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#tjenester" class="rounded-md bg-white px-7 py-4 text-sm font-black text-neutral-950 shadow-lg transition hover:bg-neutral-100">
+          MINE TJENESTER
+        </a>
+
+        <a href="#kontakt" class="rounded-md border border-white/70 bg-black/20 px-7 py-4 text-sm font-black text-white backdrop-blur transition hover:bg-white hover:text-neutral-950">
+          Kontakt meg
+        </a>
       </div>
-      <div id="josteinImageWrap" class="absolute inset-y-0 left-0 w-1/2 opacity-80">
-  <img
-    src="./bilder/jostein.jpeg"
-    alt="Jostein Haugen"
-    class="h-full w-full object-cover object-center"
-  />
-</div>
-      <div id="heroImageWrap" class="hidden absolute inset-y-0 right-0 w-1/2 opacity-80">
-          <img
-              id="heroImage"
-              alt="Bilde fra arbeid"
-              class="h-full w-full object-cover object-center"
-            />
-</div>
-     <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.78)_0%,rgba(0,0,0,0.58)_42%,rgba(0,0,0,0.18)_62%,rgba(0,0,0,0.05)_100%)]"></div>
-
-<div class="relative mx-auto grid min-h-[650px] max-w-7xl items-center gap-10 px-5 py-20 lg:grid-cols-2 lg:px-8">
-
-  <div class="relative z-10 max-w-2xl">
-    <h1 class="text-5xl font-black uppercase leading-none tracking-tight md:text-7xl">Lønnstad<br />Bygdeservice</h1>
-    <p class="mt-6 max-w-xl text-xl leading-8 text-white/90">Service på bygda i Lillehammer og omegn</p>
-    <p id="heroSubtitle" class="mt-3 text-sm font-semibold uppercase tracking-[0.24em] text-white/70">Transport, landbruk og anlegg</p>
-    <div class="mt-8 flex flex-wrap gap-4">
-      <a href="#tjenester" class="rounded-md bg-white px-7 py-4 text-sm font-black text-neutral-950 shadow-lg transition hover:bg-neutral-100">MINE TJENESTER</a>
-      <a href="#kontakt" class="rounded-md border border-white/70 bg-black/20 px-7 py-4 text-sm font-black text-white backdrop-blur transition hover:bg-white hover:text-neutral-950">Kontakt meg</a>
     </div>
   </div>
-</div>
-      <div id="heroDots" class="absolute bottom-5 left-1/2 flex -translate-x-1/2 gap-2"></div>
-    </section>
+
+  <div id="heroDots" class="absolute bottom-5 left-1/2 flex -translate-x-1/2 gap-2"></div>
+</section>
 
     <section id="tjenester" class="mx-auto max-w-7xl px-5 py-16 lg:px-8">
       <p class="text-sm font-black uppercase tracking-[0.18em]">MINE TJENESTER</p>
