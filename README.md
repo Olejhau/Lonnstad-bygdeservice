@@ -4,6 +4,9 @@ Dette repoet inneholder nettsiden til **Lønnstad Bygdeservice**.
 
 Nettsiden er satt opp som en enkel statisk nettside for GitHub Pages. Den bruker vanlig HTML, CSS og JavaScript, uten React, Vite eller annen bygging.
 
+Publisert domene: 
+https://lonnstad-bygdeservice.no/
+
 ## Innhold på nettsiden
 
 - Forside med hero-bilder
@@ -16,28 +19,28 @@ Nettsiden er satt opp som en enkel statisk nettside for GitHub Pages. Den bruker
 
 ## Filstruktur
 
-```txt
 lonnstad-bygdeservice/
 ├── index.html
 ├── style.css
 ├── script.js
+├── CNAME
 ├── .nojekyll
 ├── README.md
 └── bilder/
-    ├── lonnstad.svg
+    ├── logo.svg
     ├── hero/
     │   └── legg hero-bilder her
     ├── galleri/
     │   └── legg galleri-/arbeidsbilder her
     └── icons/
-        ├── dumper-truck-svgrepo-com.svg
-        ├── excavator-svgrepo-com.svg
-        ├── tractor-svgrepo-com.svg
-        ├── tree-svgrepo-com.svg
-        ├── trucking-truck-svgrepo-com.svg
-        ├── wheat-svgrepo-com.svg
-        └── wrench-screwdriver-tool-options-svgrepo-com.svg
-```
+        ├── dumper-truck.svg
+        ├── excavator.svg
+        ├── tractor.svg
+        ├── tree.svg
+        ├── trucking-truck.svg
+        ├── wheat.svg
+        └── tools.svg
+
 
 ## Hva de viktigste filene gjør
 
