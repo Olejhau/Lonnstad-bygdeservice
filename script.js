@@ -30,6 +30,7 @@ const yearEl = document.getElementById("year");
 const servicesEl = document.getElementById("services");
 const subjectSelect = document.getElementById("subjectSelect");
 const heroImageEl = document.getElementById("heroImage");
+const heroImageWrapEl = document.getElementById("heroImageWrap");
 const heroFallbackEl = document.getElementById("heroFallback");
 const heroSubtitleEl = document.getElementById("heroSubtitle");
 const heroDotsEl = document.getElementById("heroDots");
@@ -125,12 +126,14 @@ function renderHeroDots() {
 function updateHero() {
   if (heroImages.length) {
     const image = heroImages[activeHero % heroImages.length];
+
     heroImageEl.src = image.preview;
     heroImageEl.alt = image.title;
-    heroImageEl.classList.remove("hidden");
+
+    heroImageWrapEl.classList.remove("hidden");
     heroFallbackEl.classList.add("hidden");
   } else {
-    heroImageEl.classList.add("hidden");
+    heroImageWrapEl.classList.add("hidden");
     heroFallbackEl.classList.remove("hidden");
   }
 
