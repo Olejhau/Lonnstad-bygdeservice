@@ -41,7 +41,9 @@ const contactForm = document.getElementById("contactForm");
 const formStatus = document.getElementById("formStatus");
 const submitButton = document.getElementById("submitButton");
 
-yearEl.textContent = new Date().getFullYear();
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
 
 function renderServices() {
   services.forEach(([title, icon]) => {
@@ -229,8 +231,20 @@ function initContactForm() {
   });
 }
 
-renderServices();
-updateHero();
-renderGallery();
+if (servicesEl && subjectSelect) renderServices();
+
+if (
+  heroImageEl &&
+  heroImageWrapEl &&
+  heroFallbackEl &&
+  heroSubtitleEl &&
+  heroDotsEl
+) {
+  updateHero();
+}
+
+if (galleryGridEl) renderGallery();
+
 initImages();
-initContactForm();
+
+if (contactForm) initContactForm();
