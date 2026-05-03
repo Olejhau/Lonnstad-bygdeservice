@@ -14,7 +14,7 @@ const services = [
   ["Transport", "bilder/icons/trucking-truck-svgrepo-com.svg"],
   ["Leiekjøring", "bilder/icons/tractor-svgrepo-com.svg"],
   ["Landbruk", "bilder/icons/wheat-svgrepo-com.svg"],
-  ["Reparasjoner", "bilder/icons/wrench-screwdriver-tool-options-svgrepo-com.svg"],
+  ["Reparasjoner", "bilder/icons/tools.svg"],
   ["Veivedlikehold", "bilder/icons/dumper-truck-svgrepo-com.svg"],
   ["Anleggsarbeid", "bilder/icons/dumper-truck-svgrepo-com.svg"],
   ["Graving", "bilder/icons/excavator-svgrepo-com.svg"],
