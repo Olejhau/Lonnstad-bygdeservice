@@ -151,7 +151,7 @@ function renderGallery() {
 
   if (!galleryImages.length) {
     for (let i = 0; i < 5; i += 1) {
-      galleryGridEl.insertAdjacentHTML("beforeend", `<div class="h-48 rounded-xl border border-neutral-200 bg-gradient-to-br from-neutral-200 to-neutral-400 shadow-sm"></div>`);
+      galleryGridEl.insertAdjacentHTML("beforeend", `<div class="h-80 rounded-xl border border-neutral-200 bg-gradient-to-br from-neutral-200 to-neutral-400 shadow-sm"></div>`);
     }
     return;
   }
