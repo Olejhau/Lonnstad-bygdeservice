@@ -11,14 +11,14 @@ const heroTexts = [
 ];
 
 const services = [
-  ["Transport", "bilder/icons/trucking-truck-svgrepo-com.svg"],
-  ["Leiekjøring", "bilder/icons/tractor-svgrepo-com.svg"],
-  ["Landbruk", "bilder/icons/wheat-svgrepo-com.svg"],
+  ["Transport", "bilder/icons/trucking-truck.svg"],
+  ["Leiekjøring", "bilder/icons/tractor.svg"],
+  ["Landbruk", "bilder/icons/wheat.svg"],
   ["Reparasjoner", "bilder/icons/tools.svg"],
-  ["Veivedlikehold", "bilder/icons/dumper-truck-svgrepo-com.svg"],
-  ["Anleggsarbeid", "bilder/icons/dumper-truck-svgrepo-com.svg"],
-  ["Graving", "bilder/icons/excavator-svgrepo-com.svg"],
-  ["Trefelling", "bilder/icons/tree-svgrepo-com.svg"]
+  ["Veivedlikehold", "bilder/icons/dumper-truck.svg"],
+  ["Anleggsarbeid", "bilder/icons/dumper-truck.svg"],
+  ["Graving", "bilder/icons/excavator.svg"],
+  ["Trefelling", "bilder/icons/tree.svg"]
 ];
 
 let heroImages = [];
