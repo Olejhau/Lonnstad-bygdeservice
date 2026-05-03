@@ -159,7 +159,7 @@ function renderGallery() {
   getVisibleImages(galleryImages, galleryIndex, 5).forEach((image) => {
     galleryGridEl.insertAdjacentHTML("beforeend", `
       <div class="overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100 shadow-sm">
-        <img src="${image.preview}" alt="${image.title}" class="h-48 w-full object-cover" />
+        <img src="${image.preview}" alt="${image.title}" class="h-80 w-full object-cover object-center" />
       </div>
     `);
   });
