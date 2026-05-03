@@ -11,12 +11,12 @@ const heroTexts = [
 ];
 
 const services = [
-  ["Transport", "bilder/icons/trucking-truck.svg"],
+  ["Transport", "bilder/icons/dumper-truck.svg"],
   ["Leiekjøring", "bilder/icons/tractor.svg"],
   ["Landbruk", "bilder/icons/wheat.svg"],
   ["Reparasjoner", "bilder/icons/tools.svg"],
-  ["Veivedlikehold", "bilder/icons/dumper-truck.svg"],
-  ["Anleggsarbeid", "bilder/icons/dumper-truck.svg"],
+  ["Veivedlikehold", "bilder/icons/snow-plow.svg"],
+  ["Anleggsarbeid", "bilder/icons/barrier.svg"],
   ["Graving", "bilder/icons/excavator.svg"],
   ["Trefelling", "bilder/icons/tree.svg"]
 ];
