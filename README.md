@@ -1,64 +1,79 @@
 # Lønnstad Bygdeservice
 
-Dette er nettsiden for Lønnstad Bygdeservice.
+Dette repoet inneholder nettsiden til **Lønnstad Bygdeservice**.
 
-## Innhold
+Nettsiden er satt opp som en enkel statisk nettside for GitHub Pages. Den bruker vanlig HTML, CSS og JavaScript, uten React, Vite eller annen bygging.
 
-- Forside med hero-bilder fra GitHub
-- Mine tjenester
-- Bildekarusell med de nyeste bildene fra GitHub
-- Kontaktskjema med EmailJS
-- Presentasjon av Jostein Haugen
-- Kart
+## Innhold på nettsiden
+
+- Forside med hero-bilder
+- Tjenesteoversikt
+- Bildegalleri
+- Kontaktskjema via EmailJS
+- Om Lønnstad Bygdeservice
+- Kart med adresse
+- Kontaktinformasjon
 
 ## Filstruktur
 
 ```txt
 lonnstad-bygdeservice/
 ├── index.html
-├── package.json
+├── style.css
+├── script.js
+├── .nojekyll
 ├── README.md
-├── bilder/
-│   ├── README.md
-│   ├── hero/
-│   │   └── .gitkeep
-│   └── galleri/
-│       └── .gitkeep
-├── public/
-│   ├── logo.svg
-│   └── icons/
-│       ├── dumper-truck.svg
-│       ├── excavator.svg
-│       ├── tractor.svg
-│       ├── tree.svg
-│       ├── trucking-truck.svg
-│       ├── wheat.svg
-│       └── tools.svg
-└── src/
-    ├── App.jsx
-    ├── index.css
-    └── main.jsx
+└── bilder/
+    ├── lonnstad.svg
+    ├── hero/
+    │   └── legg hero-bilder her
+    ├── galleri/
+    │   └── legg galleri-/arbeidsbilder her
+    └── icons/
+        ├── dumper-truck-svgrepo-com.svg
+        ├── excavator-svgrepo-com.svg
+        ├── tractor-svgrepo-com.svg
+        ├── tree-svgrepo-com.svg
+        ├── trucking-truck-svgrepo-com.svg
+        ├── wheat-svgrepo-com.svg
+        └── wrench-screwdriver-tool-options-svgrepo-com.svg
 ```
 
-## Slik legger du det opp på GitHub
+## Hva de viktigste filene gjør
 
-1. Opprett et nytt repo som heter:
+### `index.html`
 
-```txt
-lonnstad-bygdeservice
-```
+Hovedfilen for nettsiden. Denne inneholder selve HTML-strukturen for forsiden, tjenester, kontakt, om-seksjon, kart og footer.
 
-2. Last opp alle filene og mappene i denne pakken.
+### `style.css`
 
-3. Pass på at repoet er public dersom bildehentingen fra GitHub skal fungere uten innlogging.
+Egne CSS-regler for navigasjon, skjema, bildekarusell og små justeringer.
 
-4. Legg hero-bilder i:
+Siden bruker også Tailwind via CDN i `index.html`, så det trengs ingen lokal Tailwind-installasjon.
+
+### `script.js`
+
+JavaScript for:
+
+- å hente bilder fra GitHub
+- å vise hero-bilder
+- å vise bildegalleri
+- å fylle inn tjenestelisten
+- å sende kontaktskjema via EmailJS
+
+### `.nojekyll`
+
+Forteller GitHub Pages at siden skal publiseres som rene statiske filer, uten Jekyll-behandling.
+
+## Bilder
+
+Hero-bilder legges her:
 
 ```txt
 bilder/hero
 ```
 
-5. Legg galleri-/prosjektbilder i:
+Galleri-/arbeidsbilder legges her:
 
 ```txt
 bilder/galleri
@@ -69,59 +84,95 @@ Nettsiden henter automatisk:
 - de 3 nyeste bildene fra `bilder/hero`
 - de 15 nyeste bildene fra `bilder/galleri`
 
-## Lokal kjøring
+Bilder kan være i formatene:
 
-Installer avhengigheter:
+```txt
+jpg, jpeg, png, webp, gif, svg
+```
 
-```bash
+## GitHub Pages-oppsett
+
+Gå til repoet på GitHub og gjør dette:
+
+1. Gå til **Settings**
+2. Velg **Pages** i menyen
+3. Under **Build and deployment**, velg:
+   - Source: **Deploy from a branch**
+   - Branch: **main**
+   - Folder: **/root**
+4. Trykk **Save**
+
+Etter kort tid vil GitHub Pages vise en publiseringsadresse.
+
+## Lokal forhåndsvisning
+
+Siden kan åpnes direkte ved å dobbeltklikke på:
+
+```txt
+index.html
+```
+
+For mest riktig test anbefales det å bruke en enkel lokal server, for eksempel med VS Code-utvidelsen **Live Server**.
+
+Det trengs ikke:
+
+```txt
 npm install
-```
-
-Start lokal forhåndsvisning:
-
-```bash
 npm run dev
-```
-
-Bygg siden:
-
-```bash
 npm run build
 ```
 
-## GitHub Pages
+## Kontaktskjema
 
-For Vite/React må GitHub Pages vanligvis settes opp med GitHub Actions, Netlify eller Vercel. En enkel løsning er å koble repoet til Netlify/Vercel og la de bygge med:
+Kontaktskjemaet bruker EmailJS.
 
-```txt
-Build command: npm run build
-Publish directory: dist
+Verdiene ligger i `script.js`:
+
+```js
+emailjs.init({ publicKey: "rMLcYfRxvLAxe13ur" });
+emailjs.sendForm("service_r2q8u3s", "template_zo1skyk", contactForm);
 ```
 
-## Viktige innstillinger i koden
+Mottaker i skjemaet er satt til:
 
-I `src/App.jsx` ligger disse verdiene:
+```txt
+jotormh@online.no
+```
+
+## Viktige innstillinger i `script.js`
+
+Disse verdiene styrer hvor nettsiden henter bilder fra:
 
 ```js
 const GITHUB_OWNER = "olejhau";
 const GITHUB_REPO = "lonnstad-bygdeservice";
 const GITHUB_BRANCH = "main";
+const HERO_IMAGE_FOLDER = "bilder/hero";
+const GALLERY_IMAGE_FOLDER = "bilder/galleri";
 ```
 
-Hvis repoet får et annet navn eller ligger på en annen bruker, må disse endres.
+Hvis repoet bytter navn eller flyttes til en annen GitHub-bruker, må disse oppdateres.
 
-## Kontaktskjema
+## Vedlikehold
 
-Kontaktskjemaet bruker EmailJS med disse verdiene i `src/App.jsx`:
+For å oppdatere nettsiden:
 
-```js
-publicKey: "rMLcYfRxvLAxe13ur"
-service: "service_r2q8u3s"
-template: "template_zo1skyk"
-```
+1. Endre tekst i `index.html`
+2. Endre utseende i `style.css`
+3. Endre funksjoner i `script.js`
+4. Last opp nye bilder i `bilder/hero` eller `bilder/galleri`
 
-Mottaker er satt til:
+Når endringene er lagret på `main`, publiseres de automatisk via GitHub Pages.
 
-```txt
-jotormh@online.no
-```
+## Teknologi
+
+Nettsiden bruker:
+
+- HTML
+- CSS
+- JavaScript
+- Tailwind CDN
+- EmailJS
+- GitHub Pages
+
+Det er ikke lenger React/Vite-oppsett i repoet.
