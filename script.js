@@ -191,7 +191,6 @@ async function initImages() {
   }
 }
 
-prevGalleryButton.addEventListener("click", () => {
 if (prevGalleryButton) {
   prevGalleryButton.addEventListener("click", () => {
     if (!galleryImages.length) return;
@@ -215,11 +214,6 @@ const hasHeroElements =
   heroSubtitleEl &&
   heroDotsEl;
 
-const hasGalleryElements =
-  galleryGridEl &&
-  prevGalleryButton &&
-  nextGalleryButton;
-
 const hasContactFormElements =
   contactForm &&
   formStatus &&
@@ -237,22 +231,6 @@ if (hasHeroElements) {
 
 if (galleryGridEl) {
   renderGallery();
-}
-
-if (prevGalleryButton) {
-  prevGalleryButton.addEventListener("click", () => {
-    if (!galleryImages.length) return;
-    galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
-    renderGallery();
-  });
-}
-
-if (nextGalleryButton) {
-  nextGalleryButton.addEventListener("click", () => {
-    if (!galleryImages.length) return;
-    galleryIndex = (galleryIndex + 1) % galleryImages.length;
-    renderGallery();
-  });
 }
 
 function initContactForm() {
