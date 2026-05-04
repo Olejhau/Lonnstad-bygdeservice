@@ -227,10 +227,6 @@ if (hasHeroElements) {
   }, 4500);
 }
 
-if (galleryGridEl) {
-  renderGallery();
-}
-
 function initContactForm() {
   if (!window.emailjs) {
     formStatus.textContent = "Kontaktskjemaet kunne ikke lastes. Kontakt oss direkte på e-post.";
