@@ -220,8 +220,6 @@ const hasContactFormElements =
   submitButton;
 
 if (hasHeroElements) {
-  updateHero();
-
   setInterval(() => {
     const count = heroImages.length || heroTexts.length;
     activeHero = (activeHero + 1) % count;
