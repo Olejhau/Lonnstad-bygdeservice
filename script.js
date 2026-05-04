@@ -176,27 +176,84 @@ async function initImages() {
   heroImages = hero.slice(0, 3);
   galleryImages = gallery.slice(0, 15);
 
-  updateHero();
-  renderGallery();
+  if (
+    heroImageEl &&
+    heroImageWrapEl &&
+    heroFallbackEl &&
+    heroSubtitleEl &&
+    heroDotsEl
+  ) {
+    updateHero();
+  }
+
+  if (galleryGridEl) {
+    renderGallery();
+  }
 }
 
 prevGalleryButton.addEventListener("click", () => {
-  if (!galleryImages.length) return;
-  galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
-  renderGallery();
-});
+if (prevGalleryButton) {
+  prevGalleryButton.addEventListener("click", () => {
+    if (!galleryImages.length) return;
+    galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+    renderGallery();
+  });
+}
 
-nextGalleryButton.addEventListener("click", () => {
-  if (!galleryImages.length) return;
-  galleryIndex = (galleryIndex + 1) % galleryImages.length;
-  renderGallery();
-});
+if (nextGalleryButton) {
+  nextGalleryButton.addEventListener("click", () => {
+    if (!galleryImages.length) return;
+    galleryIndex = (galleryIndex + 1) % galleryImages.length;
+    renderGallery();
+  });
+}
 
-setInterval(() => {
-  const count = heroImages.length || heroTexts.length;
-  activeHero = (activeHero + 1) % count;
+const hasHeroElements =
+  heroImageEl &&
+  heroImageWrapEl &&
+  heroFallbackEl &&
+  heroSubtitleEl &&
+  heroDotsEl;
+
+const hasGalleryElements =
+  galleryGridEl &&
+  prevGalleryButton &&
+  nextGalleryButton;
+
+const hasContactFormElements =
+  contactForm &&
+  formStatus &&
+  submitButton;
+
+if (hasHeroElements) {
   updateHero();
-}, 4500);
+
+  setInterval(() => {
+    const count = heroImages.length || heroTexts.length;
+    activeHero = (activeHero + 1) % count;
+    updateHero();
+  }, 4500);
+}
+
+if (galleryGridEl) {
+  renderGallery();
+}
+
+if (prevGalleryButton) {
+  prevGalleryButton.addEventListener("click", () => {
+    if (!galleryImages.length) return;
+    galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+    renderGallery();
+  });
+}
+
+if (nextGalleryButton) {
+  nextGalleryButton.addEventListener("click", () => {
+    if (!galleryImages.length) return;
+    galleryIndex = (galleryIndex + 1) % galleryImages.length;
+    renderGallery();
+  });
+}
 
 function initContactForm() {
   if (!window.emailjs) {
@@ -231,20 +288,12 @@ function initContactForm() {
   });
 }
 
-if (servicesEl && subjectSelect) renderServices();
-
-if (
-  heroImageEl &&
-  heroImageWrapEl &&
-  heroFallbackEl &&
-  heroSubtitleEl &&
-  heroDotsEl
-) {
-  updateHero();
+if (servicesEl && subjectSelect) {
+  renderServices();
 }
-
-if (galleryGridEl) renderGallery();
 
 initImages();
 
-if (contactForm) initContactForm();
+if (hasContactFormElements) {
+  initContactForm();
+}
